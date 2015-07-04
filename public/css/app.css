@@ -1,0 +1,19 @@
+body {
+	margin-top: 2em;
+}
+
+
+.link {
+	padding-bottom: 1em;
+	border-bottom: 1px solid #ccc;
+}
+
+.link .url {
+	color: #006621;
+	font-weight: bold;
+	margin-bottom: 1em;
+}
+
+.link .control-buttons form {
+	display: inline-block;
+}

@@ -48,18 +48,7 @@ class LinkController extends Controller
 
         flash()->success('The link has been created successfully.');
 
-        return redirect()->route('links.show', [$link->id]);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  Link  $link
-     * @return Response
-     */
-    public function show(Link $link)
-    {
-        return view('links.show', compact('link'));
+        return redirect()->route('home');
     }
 
     /**
@@ -85,7 +74,7 @@ class LinkController extends Controller
 
         flash()->success('Your link has been edited successfully.');
 
-        return redirect()->route('links.show', [$link->id]);
+        return redirect()->route('home');
     }
 
     /**

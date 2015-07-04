@@ -1,5 +1,5 @@
 @if (!$errors->isEmpty())
-	<div class="alert alert-error">
+	<div class="alert alert-danger">
 		<ul>
 			@foreach ($errors->all() as $error)
 				<li>{{ $error }}</li>
