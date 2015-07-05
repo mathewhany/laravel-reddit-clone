@@ -23,6 +23,14 @@
   			<ul class="nav navbar-nav">
 				<li><a href="{{ route('home') }}">Home</a></li>
   			</ul>
+  			<ul class="nav navbar-nav navbar-right">
+  				@unless (Auth::check())
+	  				<li><a href="{{ url('/auth/login') }}">Login</a></li>
+	  				<li><a href="{{ url('/auth/register') }}">Register</a></li>
+				@else
+					<li><a href="{{ url('/auth/logout') }}">Logout</a></li>
+  				@endunless
+			</ul>
 		</div>
 	</div>
 </nav>

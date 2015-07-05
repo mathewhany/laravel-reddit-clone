@@ -13,7 +13,7 @@ class LinkRequest extends Request
      */
     public function authorize()
     {
-        return true;
+        return $this->links->user_id == $this->user()->id;
     }
 
     /**

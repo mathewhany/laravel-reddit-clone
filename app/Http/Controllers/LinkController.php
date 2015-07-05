@@ -11,8 +11,16 @@ use App\Http\Requests\LinkRequest;
 
 use App\Link;
 
+use Auth;
+
 class LinkController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index']]);
+        $this->middleware('owner', ['except' => ['index', 'create']]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -44,7 +52,7 @@ class LinkController extends Controller
      */
     public function store(LinkRequest $request)
     {
-        $link = Link::create($request->all());
+        $link = Auth::user()->links()->create($request->all());
 
         flash()->success('The link has been created successfully.');
 

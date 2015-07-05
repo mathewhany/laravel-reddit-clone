@@ -8,12 +8,25 @@ body {
 	border-bottom: 1px solid #ccc;
 }
 
-.link .url {
-	color: #006621;
-	font-weight: bold;
-	margin-bottom: 1em;
+.link .title {
+	display: inline-block;
+	font-size: 22px;
+	float: left;
+}
+
+.link .control-buttons {
+	float: right;
 }
 
 .link .control-buttons form {
 	display: inline-block;
+}
+
+.link .details {
+	color: gray;
+}
+
+.link .details .user, .link .details .time {
+	display: inline-block;
+	font-weight: bold;
 }
