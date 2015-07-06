@@ -7,7 +7,7 @@ Route::get('links/{links}/vote-up', 'VoteController@voteUp');
 Route::get('links/{links}/vote-down', 'VoteController@voteDown');
 Route::get('links/{links}/undo-vote', 'VoteController@undoVote');
 
-Route::resource('links', 'LinkController', ['except' => ['show']]);
+Route::resource('links', 'LinkController');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController'

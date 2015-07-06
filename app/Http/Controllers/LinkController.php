@@ -18,8 +18,8 @@ class LinkController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['index']]);
-        $this->middleware('not_owner', ['except' => ['index', 'create', 'store']]);
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+        $this->middleware('not_owner', ['only' => ['edit', 'update', 'destroy']]);
     }
 
     /**
@@ -58,6 +58,11 @@ class LinkController extends Controller
         flash()->success('The link has been created successfully.');
 
         return redirect()->route('home');
+    }
+
+    public function show(Link $link)
+    {
+        return view('links.show', compact('link'));
     }
 
     /**
