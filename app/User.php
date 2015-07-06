@@ -37,4 +37,31 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     {
         return $this->hasMany(Link::class);
     }
+
+    public function votes()
+    {
+        return $this->hasMany(Vote::class);
+    }
+
+    public function own(Link $link)
+    {
+        return $link->user_id == $this->id;
+    }
+
+    public function getVotingValue(Link $link)
+    {
+        $vote = Vote::where('user_id', $this->id)->where('link_id', $link->id)->first();
+
+        return $vote ? $vote->value : false;
+    }
+
+    public function hasVotedFor(Link $link)
+    {
+        return $this->getVotingValue($link) === 1; 
+    }
+
+    public function hasVotedAgainst(Link $link)
+    {
+        return $this->getVotingValue($link) === -1; 
+    }
 }

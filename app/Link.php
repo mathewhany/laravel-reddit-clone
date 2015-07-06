@@ -12,4 +12,14 @@ class Link extends Model
     {
     	return $this->belongsTo(User::class);
     }
+
+    public function votes()
+    {
+    	return $this->hasMany(Vote::class);
+    }
+
+    public function getVoteCountAttribute()
+    {
+    	return array_sum($this->votes->lists('value')->toArray());
+    }
 }

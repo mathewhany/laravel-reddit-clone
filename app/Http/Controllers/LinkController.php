@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Http\Requests\LinkRequest;
+use App\Http\Requests\CreateLinkRequest;
 
 use App\Link;
 
@@ -18,7 +19,7 @@ class LinkController extends Controller
     public function __construct()
     {
         $this->middleware('auth', ['except' => ['index']]);
-        $this->middleware('owner', ['except' => ['index', 'create']]);
+        $this->middleware('not_owner', ['except' => ['index', 'create', 'store']]);
     }
 
     /**
@@ -50,7 +51,7 @@ class LinkController extends Controller
      *
      * @return Response
      */
-    public function store(LinkRequest $request)
+    public function store(CreateLinkRequest $request)
     {
         $link = Auth::user()->links()->create($request->all());
 

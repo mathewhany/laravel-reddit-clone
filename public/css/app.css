@@ -4,8 +4,16 @@ body {
 
 
 .link {
-	padding-bottom: 1em;
+	padding: 2em 0 2em;
 	border-bottom: 1px solid #ccc;
+}
+
+.link .vote-count {
+	text-align: center;
+  	font-size: 25px;
+  	background-color: aliceblue;
+  	height: 65px;
+  	line-height: 65px;
 }
 
 .link .title {

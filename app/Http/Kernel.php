@@ -29,6 +29,8 @@ class Kernel extends HttpKernel
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
-        'owner' => \App\Http\Middleware\isOwner::class
+        'owner' => \App\Http\Middleware\Owner::class,
+        'not_owner' => \App\Http\Middleware\NotOwner::class,
+        'revoting' => \App\Http\Middleware\PreventRevoting::class,
     ];
 }
